@@ -1,0 +1,8 @@
+services:
+  export-data-to-pdf-mysql:
+    image: mysql:8.0.30-oracle
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=pdf_data
+    ports:
+      - "3306:3306"

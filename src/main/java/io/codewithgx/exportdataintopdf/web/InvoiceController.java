@@ -2,6 +2,7 @@ package io.codewithgx.exportdataintopdf.web;
 
 import java.util.List;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,7 +23,7 @@ import lombok.RequiredArgsConstructor;
  */
 
 
-@RestController
+@Controller
 @RequestMapping({"/api/v1/invoice", "/invoice"})
 @RequiredArgsConstructor
 public class InvoiceController {
@@ -65,7 +66,7 @@ public class InvoiceController {
         } catch (InvoiceNotFoundException e) {
             e.printStackTrace();
             redirectAttributes.addAttribute("message", e.getMessage());
-            page = "redirect:getAllInvoices";
+            page = "redirect:getAllInvoice";
         }
         return page;
     }
@@ -75,7 +76,7 @@ public class InvoiceController {
         invoiceServiceApi.updateInvoice(invoice);
         Long id = invoice.getId();
         redirectAttributes.addAttribute("message", "Invoice with id: '%d' is updated successfully !".formatted(id));
-        return "redirect:getAllInvoices";
+        return "redirect:getAllInvoice";
     }
 
     @GetMapping("/delete")
@@ -90,6 +91,6 @@ public class InvoiceController {
             e.printStackTrace();
             attributes.addAttribute("message", e.getMessage());
         }
-        return "redirect:getAllInvoices";
+        return "redirect:getAllInvoice";
     }
 }

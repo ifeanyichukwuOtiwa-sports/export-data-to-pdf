@@ -1,8 +1,16 @@
 services:
-  export-data-to-pdf-mysql:
-    image: mysql:8.0.30-oracle
+#  export-data-to-pdf-mysql:
+#    image: mysql:8.0.30-oracle
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=123456
+#      - MYSQL_DATABASE=pdf_data
+#    ports:
+#      - "3306:3306"
+  export-data-to-pdf-postgres:
+    image: postgres:15rc2-alpine3.16
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
-      - MYSQL_DATABASE=pdf_data
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=pdf_data
     ports:
-      - "3306:3306"
+      - "5432:5432"

@@ -43,6 +43,10 @@
                                                                                           aria-hidden="true"></i></a>
                 <a th:href="@{/invoice/}" class="btn btn-primary">Go to Home</a>
             </div>
+            <div>
+                <a th:href="@{/invoice/pdf}" class="btn btn-success">Export data into PDF
+                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+            </div><br/>
             <div class="card-footer bg-white text-success" th:if="${message !=null }">
                 <span th:text="${message}"></span>
             </div>
